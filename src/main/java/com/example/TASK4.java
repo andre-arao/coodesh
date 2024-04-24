@@ -1,6 +1,6 @@
 package com.example;
 
-import com.example.dto.UserDTO;
+import com.example.dto.EmployessDTO;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.web.client.RestTemplate;
@@ -25,14 +25,14 @@ public class TASK4 {
 
         String result = restTemplate.getForObject(url, String.class);
 
-        List<UserDTO> userList = convertJsonToUserDTOList(result);
+        List<EmployessDTO> employessDTOList = converterJsonToEmployessDTOList(result);
 
         System.out.println();
 
-        for (UserDTO user : userList){
-            if (user.getGender().equals("M")) {
+        for (EmployessDTO employessDTO : employessDTOList){
+            if (employessDTO.getGender().equals("M")) {
                 generoM++;
-            } else if (user.getGender().equals("F")) {
+            } else if (employessDTO.getGender().equals("F")) {
                 generoF++;
             }
         }
@@ -55,8 +55,8 @@ public class TASK4 {
 
      }
 
-    private static List<UserDTO> convertJsonToUserDTOList(String json) throws IOException {
+    private static List<EmployessDTO> converterJsonToEmployessDTOList(String json) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        return objectMapper.readValue(json, new TypeReference<List<UserDTO>>() {});
+        return objectMapper.readValue(json, new TypeReference<List<EmployessDTO>>() {});
     }
 }

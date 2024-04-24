@@ -3,7 +3,7 @@ package com.example.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
-public class UserDTO {
+public class EmployessDTO {
     @JsonProperty("emp_no")
     private Integer emp_no;
     @JsonProperty("first_name")
