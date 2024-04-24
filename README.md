@@ -43,5 +43,5 @@ API endpoint=> https://3ospphrepc.execute-api.us-west-2.amazonaws.com/prod/RDSLa
  We suggest that your implementation have at least a CRUD scenario.
 ![Captura de tela de 2024-04-24 13-34-12](https://github.com/andre-arao/coodesh/assets/99445336/fe950d72-e4d9-412f-a353-48a36ff0b151)
 
-- OBS: O usuario que foi passado (interview) para esse desafio não tem permissão de inserir, atualizar ou deletar um employees do banco. com isso só foi implementado o endpoint da API que lista os employees. Segue evidencia do erro a baixo.
+- OBS: O usuario que foi passado (interview) para esse desafio não tem permissão de inserir, atualizar ou deletar um employees do banco. com isso só foi implementado o endpoint da API que lista os employees. Segue evidencia do erro a baixo ao mandar uma requisição POST de criação de um novo employees via postman.
 ![Captura de tela de 2024-04-24 13-32-59](https://github.com/andre-arao/coodesh/assets/99445336/6a7ec3e1-3534-46c9-8409-2124f9668417)
