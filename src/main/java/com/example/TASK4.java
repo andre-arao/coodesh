@@ -1,5 +1,6 @@
 package com.example;
 
+import com.example.dto.UserDTO;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.web.client.RestTemplate;

@@ -1,4 +1,4 @@
-package com.example;
+package com.example.listas;
 
 public class NoDuplo<T> {
 
