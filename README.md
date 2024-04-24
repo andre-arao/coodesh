@@ -1,13 +1,13 @@
 # Desafios Coodesh
 
 ## Ferramentas usadas 
-
-    - Java 8
-    - Mysql
-    - AWS
+    
+    Java 17
+    Mysql
+    AWS
 
 ## Execução de tasks
-    - Em sua IDE de preferencia execute a task desejada para testar o funcionamento e acompanhe o log.
+    Em sua IDE de preferencia execute a task desejada para testar o funcionamento e acompanhe o log.
 
 # Evidências
 
@@ -19,3 +19,5 @@
 
 ## TASK 3
 ![Captura de tela de 2024-04-23 13-16-38](https://github.com/andre-arao/coodesh/assets/99445336/38285860-aab5-4934-b1fa-74aae908a0b6)
+
+## TASK 4
