@@ -3,7 +3,6 @@ package com.example;
 import com.example.dto.EmployeesDTO;
 import com.example.model.Employees;
 import com.example.repositories.EmployessRepository;
-import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,6 +67,15 @@ public class TASK5 {
         }
 
         return employees;
+    }
+
+    @DeleteMapping
+    @Path("/{emp_no}")
+    public Response createEmployees(@PathParam(value = "emp_no") Long emp_no) {
+
+        repository.deleteById(emp_no);
+
+        return Response.noContent().build();
     }
 
 }
