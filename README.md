@@ -3,8 +3,8 @@
 ## Ferramentas usadas 
     
 - Java 17
-- Mysql
-- Maven
+- Maven 
+- Mysql ou PostgreSQL
 
 ## Execução de tasks
 - Em sua IDE de preferencia execute a task desejada para testar o funcionamento e acompanhe o log.
