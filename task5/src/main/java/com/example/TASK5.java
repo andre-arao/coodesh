@@ -3,13 +3,14 @@ package com.example;
 import com.example.dto.EmployeesDTO;
 import com.example.model.Employees;
 import com.example.repositories.EmployessRepository;
+import jakarta.transaction.Transactional;
+import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Create an implementation of a Rest API .
@@ -18,8 +19,6 @@ import java.util.List;
  *
  */
 @RestController
-@Consumes(MediaType.APPLICATION_JSON)
-@Produces(MediaType.APPLICATION_JSON)
 @RequestMapping(value = "/employees")
 public class TASK5 {
 
@@ -30,8 +29,10 @@ public class TASK5 {
         return repository.findAll();
     }
 
+    @Produces("application/json")
+    @Consumes("application/json")
     @PostMapping
-    public Employees createEmployees(EmployeesDTO employeesDTO) {
+    public Employees createEmployees(@RequestBody EmployeesDTO employeesDTO) {
 
         Employees employees = new Employees();
         employees.setFirst_name(employeesDTO.first_name());
@@ -39,6 +40,32 @@ public class TASK5 {
         employees.setGender(employeesDTO.gender());
 
         repository.save(employees);
+
+        return employees;
+    }
+
+    @Produces("application/json")
+    @Consumes("application/json")
+    @PutMapping
+    @Path("/{emp_no}")
+    public Employees createEmployees(@PathParam(value = "emp_no") Long emp_no,
+                                    @RequestBody EmployeesDTO employeesDTO) {
+
+        Optional<Employees> optionalEmployees = repository.findById(emp_no);
+
+        Employees employees = optionalEmployees.get();
+
+        if (optionalEmployees.isPresent()) {
+
+            employees.setFirst_name(employeesDTO.first_name());
+            employees.setLast_name(employeesDTO.last_name());
+            employees.setGender(employeesDTO.gender());
+
+            repository.save(employees);
+
+            return employees;
+
+        }
 
         return employees;
     }
