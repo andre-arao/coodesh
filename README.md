@@ -11,10 +11,14 @@
 - Para rodar a API da Task 5 entre via terminal na raiz do modulo [task5](./task5) e execute o comando a baixo.
 
       mvn clean install && java -jar target/task5-3.2.5.jar
-- URL: localhost:8080/codesh/employees
 
-## Postman
-- [Collection](./postman/codesh.postman_collection.json)
+## Informações extras
+
+- [Sobre André Arão](./sobreAndreArao.txt)
+- [Collection Postman da TASK5](./postman/codesh.postman_collection.json)
+- [Análise do grafico](./graficos)
+- URL de todos os endpoints: localhost:8080/codesh/employees
+- Os testes e apresentação da API Rest da TASK5 estão em [video](./video/video-task5.mp4)
 
 # Evidências
 
@@ -46,7 +50,7 @@ API endpoint=> https://3ospphrepc.execute-api.us-west-2.amazonaws.com/prod/RDSLa
  We suggest that your implementation have at least a CRUD scenario.
 ![Captura de tela de 2024-04-25 10-47-12](https://github.com/andre-arao/coodesh/assets/99445336/29607cc1-fb77-43dc-bb50-eac6bfe16224)
 
-- OBS: O restante dos testes dos endpoints em video
+- OBS: O restante dos testes feito na API Rest está em [video](./video/video-task5.mp4)
 
 ## SQL 1
 - Query que retorna a quantidade de funcionários separados por sexo:
