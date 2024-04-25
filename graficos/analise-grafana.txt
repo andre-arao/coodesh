@@ -1,0 +1,2 @@
+A memoria do sistema teve seu maior pico as 11:30, o que não é muito pois está com apenas 113 Bytes no momento.
+O web_server_04 é o que mais recebe requisições e web_server_01 é o menos requisitado.
