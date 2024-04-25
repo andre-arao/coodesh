@@ -8,7 +8,7 @@
 
 ## Execução de tasks
 - Em sua IDE de preferencia execute a task desejada para testar o funcionamento e acompanhe o log.
-- Para rodar a API da Task 5 entre via terminal na raiz do modulo TASK5 e execute o comando a baixo.
+- Para rodar a API da Task 5 entre via terminal na raiz do modulo [task5](./task5) e execute o comando a baixo.
 
       mvn clean install && java -jar target/task5-3.2.5.jar
 - URL: localhost:8080/codesh/employees
