@@ -80,5 +80,3 @@ API endpoint=> https://3ospphrepc.execute-api.us-west-2.amazonaws.com/prod/RDSLa
       GROUP BY gender;
   
 ![Captura de tela de 2024-04-25 09-48-03](https://github.com/andre-arao/coodesh/assets/99445336/cac09295-b074-41ac-88db-89163902e22b)
-
-  
