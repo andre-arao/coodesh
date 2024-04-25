@@ -16,8 +16,8 @@
 
 - [Sobre André Arão](./sobreAndreArao.txt)
 - [Collection Postman da TASK5](./postman/codesh.postman_collection.json)
-- [Análise do grafico](./graficos)
-- URL de todos os endpoints: localhost:8080/codesh/employees
+- Análise do [grafico](./graficos)
+- URL: localhost:8080/codesh/employees
 - Os testes e apresentação da API Rest da TASK5 estão em [video](./video/video-task5.mp4)
 
 # Evidências
