@@ -8,12 +8,11 @@ import lombok.Data;
 @Data
 @Entity
 //@Table(name = "result_test_guilherme")
-//@Table(name = "result_tests_mayk")
 @Table(name = "employees")
 public class Employees {
 
-    @Column(name = "emp_no")
     @Id
+    @Column(name = "emp_no")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long emp_no;
     @Column(name = "first_name")
@@ -22,8 +21,8 @@ public class Employees {
     @Column(name = "last_name")
     @NotBlank(message = "last_name é obrigatório")
     private String last_name;
-    @NotBlank(message = "gender é obrigatório")
     @Column(name = "gender")
+    @NotBlank(message = "gender é obrigatório")
     private String gender;
 
     public Long getEmp_no() {

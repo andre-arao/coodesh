@@ -3,9 +3,11 @@ package com.example;
 import com.example.dto.EmployeesDTO;
 import com.example.model.Employees;
 import com.example.repositories.EmployessRepository;
+import jakarta.validation.ConstraintViolation;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,7 +33,14 @@ public class TASK5 {
     @Produces("application/json")
     @Consumes("application/json")
     @PostMapping
-    public Employees createEmployees(@RequestBody EmployeesDTO employeesDTO) {
+    public ResponseEntity<?> createEmployees(@RequestBody EmployeesDTO employeesDTO) {
+
+        if (employeesDTO.first_name().isEmpty() || employeesDTO.last_name().isEmpty()){
+            return ResponseEntity.badRequest().body("Os campos first_name e last_name não podem estar vazios.");
+        }
+        if (employeesDTO.gender().isEmpty() || !"F".equals(employeesDTO.gender()) && !"M".equals(employeesDTO.gender())) {
+            return ResponseEntity.badRequest().body("O campo gender só pode conter a letra M ou F");
+        }
 
         Employees employees = new Employees();
         employees.setFirst_name(employeesDTO.first_name());
@@ -40,42 +49,58 @@ public class TASK5 {
 
         repository.save(employees);
 
-        return employees;
+        return ResponseEntity.badRequest().body("Funcionário criado com sucesso!");
     }
 
     @Produces("application/json")
     @Consumes("application/json")
     @PutMapping
     @Path("/{emp_no}")
-    public Employees createEmployees(@PathParam(value = "emp_no") Long emp_no,
+    public ResponseEntity<?> createEmployees(@PathParam(value = "emp_no") Long emp_no,
                                     @RequestBody EmployeesDTO employeesDTO) {
+
+        if (employeesDTO.first_name().isEmpty() || employeesDTO.last_name().isEmpty()){
+            return ResponseEntity.badRequest().body("Os campos first_name e last_name não podem estar vazios.");
+        }
+        if (employeesDTO.gender().isEmpty() || !"F".equals(employeesDTO.gender()) && !"M".equals(employeesDTO.gender())) {
+            return ResponseEntity.badRequest().body("O campo gender só pode conter a letra M ou F");
+        }
 
         Optional<Employees> optionalEmployees = repository.findById(emp_no);
 
-        Employees employees = optionalEmployees.get();
+        if (!optionalEmployees.isPresent()) {
 
-        if (optionalEmployees.isPresent()) {
-
-            employees.setFirst_name(employeesDTO.first_name());
-            employees.setLast_name(employeesDTO.last_name());
-            employees.setGender(employeesDTO.gender());
-
-            repository.save(employees);
-
-            return employees;
+            return ResponseEntity.badRequest().body("O funcionário com o emp_no: " + emp_no + " não existe:");
 
         }
 
-        return employees;
+        Employees employees = optionalEmployees.get();
+
+        employees.setFirst_name(employeesDTO.first_name());
+        employees.setLast_name(employeesDTO.last_name());
+        employees.setGender(employeesDTO.gender());
+
+        repository.save(employees);
+
+        return ResponseEntity.badRequest().body("Funcionário atualizado com sucesso!");
+
     }
 
     @DeleteMapping
     @Path("/{emp_no}")
-    public Response createEmployees(@PathParam(value = "emp_no") Long emp_no) {
+    public ResponseEntity<?> createEmployees(@PathParam(value = "emp_no") Long emp_no) {
+
+        Optional<Employees> optionalEmployees = repository.findById(emp_no);
+
+        if (!optionalEmployees.isPresent()) {
+
+            return ResponseEntity.badRequest().body("O funcionário com o emp_no: " + emp_no + " não existe:");
+
+        }
 
         repository.deleteById(emp_no);
 
-        return Response.noContent().build();
+        return ResponseEntity.badRequest().body("Funcionário excluido com sucesso!");
     }
 
 }
